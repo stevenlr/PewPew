@@ -12,6 +12,14 @@ var Game = function(canvasF, canvasB) {
 	this.images.load("stars", "stars.png");
 	this.images.load("stars2", "stars2.png");
 
+	this.images.load("ship-izalith", "ship1.png");
+	this.images.load("ship-solaire", "ship2.png");
+	this.images.load("stars-manus", "ship3.png");
+
+	this.images.load("ennemy", "ennemy.png");
+	this.images.load("projectile-player", "projectile-player.png");
+	this.images.load("projectile-ennemy", "projectile-ennemy.png");
+
 	this.width = this.elementF.width;
 	this.height = this.elementF.height;
 

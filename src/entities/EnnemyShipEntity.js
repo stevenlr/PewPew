@@ -1,6 +1,6 @@
 var EnnemyShipEntity = function(level) {
 	this.level = level;
-	this.box = new AABB(level.game.width, Math.random() * (level.game.height - 25), 50, 25);
+	this.box = new AABB(level.game.width, Math.random() * (level.game.height - 25), 50, 40);
 	this.dx = -280;
 	this.dy = 0;
 	this.dir_y = 0;
@@ -86,6 +86,9 @@ EnnemyShipEntity.prototype.update = function(dt) {
 };
 
 EnnemyShipEntity.prototype.draw = function(ctx) {
-	ctx.fillStyle = "#a20";
-	ctx.fillRect(this.box.x, this.box.y, this.box.w, this.box.h);
+	ctx.drawImage(this.level.game.images.get("ennemy"), this.box.x, this.box.y);
+};
+
+EnnemyShipEntity.prototype.kill = function() {
+	this.dead = 1;
 };

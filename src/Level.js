@@ -94,21 +94,31 @@ Level.prototype.draw = function(ctx) {
 
 	this.player.draw(ctx);
 
+	ctx.save();
+	ctx.globalCompositeOperation = "lighter";
+
 	for (i in this.projectiles) {
 		this.projectiles[i].draw(ctx);
 	}
+
+	ctx.restore();
 
 	for (i in this.ennemies) {
 		this.ennemies[i].draw(ctx);
 	}
 
-	ctx.fillStyle = '#ff0000';
-	ctx.fillRect(10, 10, 10 * this.player.health, 30);
+	ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+	ctx.fillRect(0, 0, this.game.width, 50);
+
+	ctx.fillStyle = '#331100';
+	ctx.fillRect(10, 10, 100, 30);
+	ctx.fillStyle = '#dd2211';
+	ctx.fillRect(10, 10, 100 * this.player.health / this.player.maxhealth, 30);
 	ctx.fillStyle = '#ffffff';
 	ctx.textBaseline = "middle";
 	ctx.font = "20px Arial";
 	ctx.textAlign = "left";
-	ctx.fillText("" + this.score, 130, 25);
+	ctx.fillText("Health    |    Score  " + this.score, 130, 25);
 
 	if (this.end) {
 		ctx.fillStyle = '#eedd55';

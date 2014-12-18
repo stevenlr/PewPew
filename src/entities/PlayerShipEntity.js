@@ -4,7 +4,8 @@ var PlayerShipEntity = function(level) {
 	this.dy = 0;
 	this.dx = 0;
 	this.cooldown = 0;
-	this.health = 10;
+	this.maxhealth = 10;
+	this.health = this.maxhealth;
 	this.healthCooldown = 0;
 	this.firing = 0;
 };
@@ -130,6 +131,8 @@ PlayerShipEntity.prototype.update = function(dt) {
 					this.health = 0;
 				}
 
+				e.kill();
+
 				break;
 			}
 		}
@@ -137,6 +140,5 @@ PlayerShipEntity.prototype.update = function(dt) {
 };
 
 PlayerShipEntity.prototype.draw = function(ctx) {
-	ctx.fillStyle = "#fff";
-	ctx.fillRect(this.box.x, this.box.y, this.box.w, this.box.h);
+	ctx.drawImage(this.level.game.images.get("ship-solaire"), this.box.x, this.box.y - 40);
 };
