@@ -21,6 +21,7 @@ Level.prototype.update = function(dt) {
 
 	if (this.player.health == 0) {
 		this.end = 1;
+		this.game.sounds.play("explosion");
 		return;
 	}
 

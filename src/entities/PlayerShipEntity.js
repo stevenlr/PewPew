@@ -52,6 +52,7 @@ PlayerShipEntity.prototype.update = function(dt) {
 	}
 
 	if (this.firing && this.cooldown <= 0) {
+		this.level.game.sounds.play("shoot");
 		this.level.addProjectile(new ProjectileEntity(
 			this.level, 1,
 			this.box.x + this.box.w,
@@ -108,6 +109,7 @@ PlayerShipEntity.prototype.update = function(dt) {
 				var box = p.getBoundingBox();
 
 				if (box.intersects(this.box)) {
+					this.level.game.sounds.play("hurt");
 					this.health -= 1;
 					this.healthCooldown = 1;
 
@@ -125,6 +127,7 @@ PlayerShipEntity.prototype.update = function(dt) {
 			var box = e.getBoundingBox();
 
 			if (box.intersects(this.box)) {
+				this.level.game.sounds.play("hurt");
 				this.health -= 2;
 				this.healthCooldown = 1;
 

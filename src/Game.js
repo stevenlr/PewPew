@@ -8,17 +8,22 @@ var Game = function(canvasF, canvasB) {
 	this.input = new InputHandler();
 	this.screenManager = new ScreenManager();
 	this.images = new ImagesRegistry();
+	this.sounds = new SoundRegistry();
 
 	this.images.load("stars", "stars.png");
 	this.images.load("stars2", "stars2.png");
-
 	this.images.load("ship-izalith", "ship1.png");
 	this.images.load("ship-solaire", "ship2.png");
 	this.images.load("ship-manus", "ship3.png");
-
 	this.images.load("ennemy", "ennemy.png");
 	this.images.load("projectile-player", "projectile-player.png");
 	this.images.load("projectile-ennemy", "projectile-ennemy.png");
+
+	this.sounds.load("confirm", "confirm.wav", 2, 0.3);
+	this.sounds.load("explosion", "explosion.wav", 4, 0.1);
+	this.sounds.load("hurt", "hurt.wav", 1, 0.4);
+	this.sounds.load("select", "select.wav", 4, 0.4);
+	this.sounds.load("shoot", "shoot.wav", 8, 0.2);
 
 	this.width = this.elementF.width;
 	this.height = this.elementF.height;

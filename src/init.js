@@ -6,6 +6,7 @@ var files = [
 	"ScreenManager",
 	"Level",
 	"ImagesRegistry",
+	"SoundRegistry",
 	"ShipConfig",
 
 	"screens/Screen",

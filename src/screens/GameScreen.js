@@ -11,6 +11,7 @@ GameScreen.prototype.update = function(dt) {
 		this.endCooldown -= dt;
 
 		if (this.endCooldown <= 0 && this.game.input.pressed("space")) {
+			this.game.sounds.play("confirm");
 			this.game.screenManager.scheduleScreenChange(new MenuScreen(this.game));
 		}
 	} else {

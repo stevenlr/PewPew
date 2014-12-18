@@ -6,7 +6,7 @@ var LoadingScreen = function(game) {
 LoadingScreen.prototype = new Screen();
 
 LoadingScreen.prototype.update = function(dt) {
-	this.lastLoad = this.game.images.getLoadedPercent();
+	this.lastLoad = (this.game.images.getLoadedPercent() + this.game.sounds.getLoadedPercent()) / 2;
 	if (this.lastLoad >= 1) {
 		this.game.screenManager.scheduleScreenChange(new MenuScreen(this.game));
 	}

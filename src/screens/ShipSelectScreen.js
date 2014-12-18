@@ -8,14 +8,17 @@ ShipSelectScreen.prototype = new Screen();
 ShipSelectScreen.prototype.update = function(dt) {
 	if (this.game.input.pressed("left")) {
 		this.selected = (this.selected + 2) % 3;
+		this.game.sounds.play("select");
 	}
 
 	if (this.game.input.pressed("right")) {
 		this.selected = (this.selected + 1) % 3;
+		this.game.sounds.play("select");
 	}
 
 	if (this.game.input.pressed("space")) {
 		this.game.screenManager.scheduleScreenChange(new GameScreen(this.game, this.selected));
+		this.game.sounds.play("confirm");
 	}
 };
 

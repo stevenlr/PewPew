@@ -36,6 +36,7 @@ EnnemyShipEntity.prototype.update = function(dt) {
 	}
 
 	if (this.cooldown <= 0) {
+		this.level.game.sounds.play("shoot");
 		this.level.addProjectile(new ProjectileEntity(
 			this.level, 0,
 			this.box.x,
@@ -77,7 +78,7 @@ EnnemyShipEntity.prototype.update = function(dt) {
 			var box = p.getBoundingBox();
 
 			if (box.intersects(this.box)) {
-				this.dead = 1;
+				this.kill();
 				this.level.score += 7;
 				break;
 			}
@@ -91,4 +92,5 @@ EnnemyShipEntity.prototype.draw = function(ctx) {
 
 EnnemyShipEntity.prototype.kill = function() {
 	this.dead = 1;
+	this.level.game.sounds.play("explosion");
 };

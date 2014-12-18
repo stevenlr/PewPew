@@ -1,21 +1,18 @@
 var ImagesRegistry = function() {
 	this.images = {};
-	this.loaded = {};
 	this.nbLoaded = 0;
 };
 
 ImagesRegistry.prototype.load = function(key, src) {
 	var img = new Image();
 
-	this.loaded[key] = 0;
 	this.images[key] = img;
 
-	(function (context, img, key) {
+	(function (context, img) {
 		img.onload = function() {
-			context.loaded[key] = 1;
 			context.nbLoaded++;
 		};
-	}) (this, img, key);
+	}) (this, img);
 
 	img.src = "assets/images/" + src;
 };
