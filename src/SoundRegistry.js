@@ -18,6 +18,7 @@ SoundRegistry.prototype.load = function(key, src, nbOverdubs, volume) {
 		this.sounds[key][i] = elm;
 		elm.autoplay = false;
 		elm.volume = volume;
+		elm.preload = "auto";
 
 		(function (context, elm, key) {
 			elm.oncanplaythrough = function() {
