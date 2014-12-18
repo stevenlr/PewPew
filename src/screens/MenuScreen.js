@@ -6,7 +6,7 @@ MenuScreen.prototype = new Screen();
 
 MenuScreen.prototype.update = function(dt) {
 	if (this.game.input.pressed("space")) {
-		this.game.screenManager.scheduleScreenChange(new GameScreen(this.game));
+		this.game.screenManager.scheduleScreenChange(new ShipSelectScreen(this.game));
 	}
 };
 

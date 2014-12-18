@@ -1,6 +1,6 @@
-var GameScreen = function(game) {
+var GameScreen = function(game, shipType) {
 	this.game = game;
-	this.level = new Level(game);
+	this.level = new Level(game, shipType);
 	this.endCooldown = 1;
 };
 

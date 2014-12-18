@@ -6,11 +6,13 @@ var files = [
 	"ScreenManager",
 	"Level",
 	"ImagesRegistry",
+	"ShipConfig",
 
 	"screens/Screen",
 	"screens/GameScreen",
 	"screens/MenuScreen",
 	"screens/LoadingScreen",
+	"screens/ShipSelectScreen",
 
 	"entities/Entity",
 	"entities/PlayerShipEntity",

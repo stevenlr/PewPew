@@ -1,10 +1,11 @@
-var PlayerShipEntity = function(level) {
+var PlayerShipEntity = function(level, config) {
+	this.config = config;
 	this.level = level;
 	this.box = new AABB(100, level.game.height / 2 - 40, 80, 40);
 	this.dy = 0;
 	this.dx = 0;
 	this.cooldown = 0;
-	this.maxhealth = 10;
+	this.maxhealth = config.health;
 	this.health = this.maxhealth;
 	this.healthCooldown = 0;
 	this.firing = 0;
@@ -19,7 +20,7 @@ PlayerShipEntity.prototype.getBoundingBox = function() {
 PlayerShipEntity.prototype.update = function(dt) {
 	var accy = 0;
 	var accx = 0;
-	var acc = 5000;
+	var acc = this.config.acceleration;
 	var input = this.level.game.input;
 
 	if (this.health == 0) {
@@ -54,11 +55,11 @@ PlayerShipEntity.prototype.update = function(dt) {
 		this.level.addProjectile(new ProjectileEntity(
 			this.level, 1,
 			this.box.x + this.box.w,
-			this.box.y + this.box.h / 2,
+			this.box.y,
 			1
 		));
 
-		this.cooldown = 0.1;
+		this.cooldown = this.config.fireRate;
 	}
 
 	this.cooldown -= dt;
@@ -140,5 +141,5 @@ PlayerShipEntity.prototype.update = function(dt) {
 };
 
 PlayerShipEntity.prototype.draw = function(ctx) {
-	ctx.drawImage(this.level.game.images.get("ship-solaire"), this.box.x, this.box.y - 40);
+	ctx.drawImage(this.level.game.images.get(this.config.image), this.box.x, this.box.y - 40);
 };

@@ -14,7 +14,7 @@ var Game = function(canvasF, canvasB) {
 
 	this.images.load("ship-izalith", "ship1.png");
 	this.images.load("ship-solaire", "ship2.png");
-	this.images.load("stars-manus", "ship3.png");
+	this.images.load("ship-manus", "ship3.png");
 
 	this.images.load("ennemy", "ennemy.png");
 	this.images.load("projectile-player", "projectile-player.png");
@@ -22,6 +22,12 @@ var Game = function(canvasF, canvasB) {
 
 	this.width = this.elementF.width;
 	this.height = this.elementF.height;
+
+	this.ships = [
+		new ShipConfig("Solaire", 5000, 10, 0.12, "ship-solaire"),
+		new ShipConfig("Izalith", 6000, 6, 0.075, "ship-izalith"),
+		new ShipConfig("Manus", 3400, 28, 0.23, "ship-manus")
+	];
 
 	this.screenManager.scheduleScreenChange(new LoadingScreen(this));
 

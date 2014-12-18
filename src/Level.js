@@ -1,6 +1,6 @@
-var Level = function(game) {
+var Level = function(game, shipType) {
 	this.game = game;
-	this.player = new PlayerShipEntity(this);
+	this.player = new PlayerShipEntity(this, this.game.ships[shipType]);
 	this.projectiles = [];
 	this.ennemies = [];
 	this.nbEnnemies = 20;
@@ -111,14 +111,14 @@ Level.prototype.draw = function(ctx) {
 	ctx.fillRect(0, 0, this.game.width, 50);
 
 	ctx.fillStyle = '#331100';
-	ctx.fillRect(10, 10, 100, 30);
+	ctx.fillRect(10, 10, 200, 30);
 	ctx.fillStyle = '#dd2211';
-	ctx.fillRect(10, 10, 100 * this.player.health / this.player.maxhealth, 30);
+	ctx.fillRect(10, 10, 200 * this.player.health / this.player.maxhealth, 30);
 	ctx.fillStyle = '#ffffff';
 	ctx.textBaseline = "middle";
 	ctx.font = "20px Arial";
 	ctx.textAlign = "left";
-	ctx.fillText("Health    |    Score  " + this.score, 130, 25);
+	ctx.fillText("Health    |    Score  " + this.score, 230, 25);
 
 	if (this.end) {
 		ctx.fillStyle = '#eedd55';
