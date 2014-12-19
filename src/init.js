@@ -20,6 +20,12 @@ var files = [
 	"entities/EnnemyShipEntity",
 	"entities/ProjectileEntity",
 
+	"particles/Particle",
+	"particles/ParticlesManager",
+	"particles/DebrisParticle",
+	"particles/FireParticle",
+	"particles/ParticleEffectSpawner",
+
 	"physics/AABB"
 ];
 

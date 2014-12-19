@@ -112,6 +112,8 @@ PlayerShipEntity.prototype.update = function(dt) {
 					this.level.game.sounds.play("hurt");
 					this.health -= 1;
 					this.healthCooldown = 1;
+					ParticleEffectSpawner.fire(this.level.game, this.level.particles,
+						box.x, box.y);
 
 					if (this.health < 0) {
 						this.health = 0;

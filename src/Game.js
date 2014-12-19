@@ -18,6 +18,10 @@ var Game = function(canvasF, canvasB) {
 	this.images.load("ennemy", "ennemy.png");
 	this.images.load("projectile-player", "projectile-player.png");
 	this.images.load("projectile-ennemy", "projectile-ennemy.png");
+	this.images.load("debris1", "debris.png");
+	this.images.load("debris2", "debris-small1.png");
+	this.images.load("debris3", "debris-small2.png");
+	this.images.load("fire", "fire.png");
 
 	this.sounds.load("confirm", "confirm.wav", 2, 0.3);
 	this.sounds.load("explosion", "explosion.wav", 4, 0.1);

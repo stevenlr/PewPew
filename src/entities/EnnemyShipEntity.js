@@ -93,4 +93,11 @@ EnnemyShipEntity.prototype.draw = function(ctx) {
 EnnemyShipEntity.prototype.kill = function() {
 	this.dead = 1;
 	this.level.game.sounds.play("explosion");
+	ParticleEffectSpawner.fire(this.level.game, this.level.particles,
+		this.box.x + this.box.w / 2,
+		this.box.y + this.box.h / 2);
+	ParticleEffectSpawner.debris(this.level.game, this.level.particles,
+		this.box.x + this.box.w / 2,
+		this.box.y + this.box.h / 2,
+		this.dx, this.dy);
 };

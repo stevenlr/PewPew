@@ -10,6 +10,7 @@ var Level = function(game, shipType) {
 	this.backgroundScroll2 = 0;
 	this.starsimg1 = this.game.images.get("stars");
 	this.starsimg2 = this.game.images.get("stars2");
+	this.particles = new ParticlesManager(200);
 };
 
 Level.prototype.update = function(dt) {
@@ -82,6 +83,8 @@ Level.prototype.update = function(dt) {
 	if (this.backgroundScroll2 < -this.starsimg2.width) {
 		this.backgroundScroll2 += this.starsimg2.width;
 	}
+
+	this.particles.update(dt);
 };
 
 Level.prototype.draw = function(ctx) {
@@ -107,6 +110,10 @@ Level.prototype.draw = function(ctx) {
 	for (i in this.ennemies) {
 		this.ennemies[i].draw(ctx);
 	}
+
+	ctx.save();
+	this.particles.draw(ctx);
+	ctx.restore();
 
 	ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
 	ctx.fillRect(0, 0, this.game.width, 50);
