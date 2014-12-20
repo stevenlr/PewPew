@@ -110,7 +110,7 @@ PlayerShipEntity.prototype.update = function(dt) {
 
 				if (box.intersects(this.box)) {
 					this.level.game.sounds.play("hurt");
-					this.health -= 1;
+					this.health -= 2;
 					this.healthCooldown = 1;
 					ParticleEffectSpawner.fire(this.level.game, this.level.particles,
 						box.x, box.y);

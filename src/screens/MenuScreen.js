@@ -32,6 +32,7 @@ MenuScreen.prototype.draw = function(ctx) {
 	ctx.font = "20px Arial";
 	ctx.fillText("Arrow keys to dance", this.game.width / 2, 380);
 	ctx.fillText("Space to make stuff go pew pew", this.game.width / 2, 420);
+	ctx.fillText("M to make the music shut the fuck up", this.game.width / 2, 460);
 
 	ctx.fillStyle = '#555';
 	ctx.textAlign = "right";

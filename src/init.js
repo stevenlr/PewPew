@@ -8,6 +8,7 @@ var files = [
 	"ImagesRegistry",
 	"SoundRegistry",
 	"ShipConfig",
+	"Music",
 
 	"screens/Screen",
 	"screens/GameScreen",

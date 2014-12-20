@@ -9,6 +9,7 @@ var Game = function(canvasF, canvasB) {
 	this.screenManager = new ScreenManager();
 	this.images = new ImagesRegistry();
 	this.sounds = new SoundRegistry();
+	this.music = new Music(0.4);
 
 	this.images.load("stars", "stars.png");
 	this.images.load("stars2", "stars2.png");
@@ -34,8 +35,8 @@ var Game = function(canvasF, canvasB) {
 
 	this.ships = [
 		new ShipConfig("Solaire", 5000, 10, 0.12, "ship-solaire"),
-		new ShipConfig("Izalith", 6000, 6, 0.075, "ship-izalith"),
-		new ShipConfig("Manus", 3400, 28, 0.23, "ship-manus")
+		new ShipConfig("Izalith", 6000, 5, 0.08, "ship-izalith"),
+		new ShipConfig("Manus", 3500, 28, 0.23, "ship-manus")
 	];
 
 	this.screenManager.scheduleScreenChange(new LoadingScreen(this));
@@ -58,6 +59,10 @@ Game.prototype.run = function() {
 
 	this.ctxB.fillStyle = "#000000";
 	this.ctxB.fillRect(0, 0, 1280, 720);
+
+	if (this.input.pressed("mute")) {
+		this.music.toggleMuted();
+	}
 
 	screen.update(dt);
 	screen.draw(this.ctxB);

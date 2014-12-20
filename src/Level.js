@@ -72,13 +72,13 @@ Level.prototype.update = function(dt) {
 		this.score = 0;
 	}
 
-	this.backgroundScroll -= dt * 50;
+	this.backgroundScroll -= dt * 100;
 
 	if (this.backgroundScroll < -this.starsimg1.width) {
 		this.backgroundScroll += this.starsimg1.width;
 	}
 
-	this.backgroundScroll2 -= dt * 80;
+	this.backgroundScroll2 -= dt * 200;
 
 	if (this.backgroundScroll2 < -this.starsimg2.width) {
 		this.backgroundScroll2 += this.starsimg2.width;

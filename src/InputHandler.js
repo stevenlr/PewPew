@@ -11,6 +11,7 @@ var InputHandler = function() {
 	(function (context) {
 		document.onkeydown = function(e) {
 			context.currentStates[e.keyCode] = 1;
+			console.log(e.keyCode);
 		};
 
 		document.onkeyup = function(e) {
@@ -24,7 +25,8 @@ InputHandler.prototype.config = {
 	"up": 38,
 	"right": 39,
 	"down": 40,
-	"space": 32
+	"space": 32,
+	"mute": 77
 };
 
 InputHandler.prototype.isDown = function(key) {
