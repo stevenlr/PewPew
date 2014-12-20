@@ -34,7 +34,7 @@ Music.prototype.play = function() {
 	(function (context) {
 		context.start.onended = function() {
 			context.loop.play();
-		}
+		};
 	}) (this);
 };
 

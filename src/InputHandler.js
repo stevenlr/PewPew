@@ -11,7 +11,6 @@ var InputHandler = function() {
 	(function (context) {
 		document.onkeydown = function(e) {
 			context.currentStates[e.keyCode] = 1;
-			console.log(e.keyCode);
 		};
 
 		document.onkeyup = function(e) {
